@@ -1,0 +1,144 @@
+// Import fonts
+@font-face {
+  font-family: 'Courier New';
+  src: url('/fonts/courier-new/courier-new.ttf');
+}
+
+@font-face {
+  font-family: 'Courier New';
+  src: url('/fonts/courier-new/courier-new-bold.ttf');
+  font-weight: bold;
+}
+
+// Variables
+$font: 'Courier New', Courier, monospace;
+$text: #fff;
+$bg: #181a1b;
+$primary: #f06;
+$gray: #2a2d2f;
+$elevation: 0 14px 28px
+    rgba(
+      $color: $primary,
+      $alpha: 0.25,
+    ),
+  0 10px 10px
+    rgba(
+      $color: $primary,
+      $alpha: 0.22,
+    );
+$elevation-gray: 0 14px 28px
+    rgba(
+      $color: black,
+      $alpha: 0.25,
+    ),
+  0 10px 10px
+    rgba(
+      $color: black,
+      $alpha: 0.22,
+    );
+
+// Utils
+%flex-center {
+  display: flex;
+  align-items: center;
+}
+
+%grid-center {
+  display: grid;
+  place-items: center;
+  align-content: center;
+}
+
+%rounded {
+  border-radius: 100rem;
+}
+
+%btn {
+  @extend %flex-center;
+  font-weight: bold;
+  padding: 1rem;
+  height: 3rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out, color 0.3s ease-in-out;
+
+  &:hover {
+    box-shadow: $elevation;
+  }
+}
+
+%btn-filled {
+  @extend %btn;
+  background-color: $primary;
+}
+
+%btn-outlined {
+  @extend %btn;
+  border: 3px solid $primary;
+
+  &:hover {
+    color: $primary;
+  }
+}
+
+%ellipsis {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container-sm {
+  @extend .container;
+  max-width: 800px;
+}
+
+.img {
+  display: block;
+  overflow: hidden;
+
+  img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+  }
+}
+
+%link {
+  font-weight: bold;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Breakpoints
+@mixin breakpoint($size) {
+  @media screen and (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin bp1 {
+  @include breakpoint(1000px) {
+    @content;
+  }
+}
+
+@mixin bp2 {
+  @include breakpoint(800px) {
+    @content;
+  }
+}
+
+@mixin bp3 {
+  @include breakpoint(700px) {
+    @content;
+  }
+}

@@ -1,0 +1,116 @@
+@use '../styles/base';
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem;
+  align-items: center;
+  padding: 2rem 1.5rem 4rem;
+
+  @include base.bp2 {
+    grid-template-columns: 1fr;
+    padding: 4rem 1.5rem;
+  }
+
+  @include base.bp3 {
+    padding: 4rem 1rem 2.5rem;
+  }
+}
+
+.body {
+  h1 {
+    font-size: 2rem;
+    max-width: 30rem;
+
+    @include base.bp3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  p {
+    font-size: 1.25rem;
+    max-width: 30rem;
+  }
+
+  @include base.bp2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .action {
+    @extend %flex-center;
+    margin-top: 2rem;
+
+    a {
+      &:nth-child(1) {
+        @extend %btn-filled;
+        margin-right: 1.5rem;
+      }
+
+      &:nth-child(2) {
+        @extend %btn-outlined;
+        @extend %rounded;
+      }
+    }
+  }
+}
+
+.featured {
+  @extend %grid-center;
+  height: 38.5rem;
+  gap: 1rem;
+
+  @include base.bp2 {
+    height: unset;
+    max-width: 30rem;
+    margin: 0 auto;
+  }
+
+  > * {
+    width: 100%;
+  }
+
+  .img {
+    max-height: 35rem;
+
+    @include base.bp2 {
+      max-height: 30rem;
+    }
+  }
+
+  > div {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.9rem;
+
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+      @extend %rounded;
+    }
+
+    .profile {
+      font-weight: bold;
+
+      > * {
+        @extend %ellipsis;
+      }
+
+      a {
+        color: base.$primary;
+      }
+    }
+
+    button {
+      text-transform: uppercase;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

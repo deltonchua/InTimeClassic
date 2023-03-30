@@ -1,0 +1,24 @@
+@use '../styles/base';
+
+.controls {
+  @extend %btn-outlined;
+  @extend %rounded;
+  justify-content: center;
+  padding: 0;
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  bottom: 3rem;
+  right: 3rem;
+  background-color: base.$bg;
+
+  @include base.bp3 {
+    bottom: 1rem;
+    right: 1rem;
+  }
+
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

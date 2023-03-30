@@ -1,0 +1,22 @@
+@use '../styles/base';
+
+.container-sm {
+  > div {
+    border-bottom: 1px solid base.$text;
+  }
+
+  button {
+    padding: 1rem 0;
+    width: 100%;
+    text-align: left;
+    font-size: 1.25rem;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  p {
+    padding-bottom: 1rem;
+  }
+}

@@ -1,0 +1,57 @@
+@use '../../styles/base';
+
+.overlay {
+  @extend %grid-center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba($color: #000, $alpha: 0.5);
+  backdrop-filter: blur(3px);
+  display: none;
+}
+
+.modal {
+  width: min(90%, 30rem);
+  background-color: base.$bg;
+  box-shadow: base.$elevation-gray;
+
+  header {
+    @extend %flex-center;
+    padding: 1rem;
+    box-shadow: 0 1px base.$gray;
+    position: relative;
+
+    h3 {
+      text-align: center;
+      max-width: 85%;
+      margin: 0 auto;
+    }
+
+    button {
+      @extend %grid-center;
+      position: absolute;
+      right: 1rem;
+
+      svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+  }
+
+  .body {
+    padding: 1rem;
+
+    ol {
+      margin-left: 2rem;
+      padding-bottom: 1rem;
+    }
+
+    a {
+      @extend %link;
+    }
+  }
+}

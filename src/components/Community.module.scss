@@ -1,0 +1,41 @@
+@use '../styles/base';
+
+.container-sm {
+  text-align: center;
+  padding-bottom: 8rem;
+}
+
+.social {
+  @extend %flex-center;
+  justify-content: center;
+  margin-top: 3rem;
+
+  a {
+    @extend %grid-center;
+
+    &:not(:last-child) {
+      margin-right: 3rem;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.15);
+      }
+
+      small {
+        font-weight: bold;
+      }
+    }
+
+    img {
+      width: 3rem;
+      height: 3rem;
+      margin-bottom: 0.25rem;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    small {
+      transition: font-weight 0.3s ease-in-out;
+    }
+  }
+}

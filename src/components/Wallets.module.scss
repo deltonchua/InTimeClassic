@@ -1,0 +1,39 @@
+@use '../styles/base';
+
+.wallets {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  text-align: center;
+
+  @include base.bp3 {
+    grid-template-columns: 1fr;
+  }
+
+  > div {
+    border: 1px solid base.$text;
+    padding: 1.5rem 1rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  img {
+    @extend %grid-center;
+    width: 3rem;
+    height: 3rem;
+    margin-bottom: 0.5rem;
+  }
+
+  span {
+    flex: 1;
+    margin: 1rem 0 2rem;
+  }
+
+  a {
+    @extend %btn-filled;
+    width: 100%;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,146 @@
+@use '../styles/base';
+
+.header {
+  @extend %flex-center;
+  justify-content: space-between;
+  padding: 1.5rem;
+  font-weight: bold;
+
+  @include base.bp3 {
+    padding: 1rem;
+  }
+
+  @include base.bp1 {
+    &.active {
+      position: fixed;
+      z-index: 2;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba($color: #000, $alpha: 0.75);
+      backdrop-filter: blur(3px);
+      display: block;
+
+      .menu-btn {
+        div {
+          width: 0;
+        }
+
+        &::before {
+          transform: translateY(8px) rotateZ(40deg);
+        }
+
+        &::after {
+          transform: translateY(-8px) rotateZ(-40deg);
+        }
+      }
+
+      nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        height: 100%;
+      }
+    }
+  }
+
+  .top {
+    @extend %flex-center;
+    justify-content: space-between;
+    flex: 1;
+  }
+
+  .logo {
+    @extend %flex-center;
+
+    img {
+      @extend %grid-center;
+      width: 3rem;
+      height: 3rem;
+
+      @include base.bp3 {
+        width: 2.5rem;
+        height: 2.5rem;
+      }
+    }
+
+    h1 {
+      margin: 0 0.25rem 0 0.5rem;
+
+      @include base.bp3 {
+        font-size: 1.75rem;
+      }
+    }
+
+    sup {
+      align-self: flex-start;
+      background-color: base.$primary;
+      padding: 0.25rem;
+      font-size: 0.75rem;
+
+      @include base.bp3 {
+        font-size: 0.6rem;
+      }
+    }
+  }
+
+  .menu-btn {
+    height: calc(5px * 2 + 3px * 3);
+    overflow: hidden;
+    display: none;
+
+    @include base.bp1 {
+      display: block;
+    }
+
+    div {
+      margin: 5px 0;
+    }
+
+    div,
+    &::before,
+    &::after {
+      content: '';
+      width: 1.75rem;
+      height: 3px;
+      display: block;
+      background-color: base.$text;
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+
+  nav {
+    @extend %flex-center;
+
+    @include base.bp1 {
+      display: none;
+    }
+
+    a {
+      &:hover {
+        color: base.$primary;
+      }
+
+      &:not(:last-child) {
+        margin-right: 1.5rem;
+
+        @include base.bp1 {
+          margin-right: 0;
+          margin-bottom: 1.5rem;
+        }
+      }
+    }
+  }
+
+  .uniswap {
+    @extend %btn-outlined;
+    @extend %rounded;
+    padding: 0.5rem 1rem 0.5rem 0.75rem;
+
+    img {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+}
